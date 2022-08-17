@@ -35,3 +35,36 @@ let detail1=function()
 
 let AGE=detail1.bind(student);
 console.log(AGE());
+
+
+//CURRING: IT WILL CREATE COPY OF ORIGINAL FUNCTION BUT WITH DIFFERNT PARAMETERS
+
+//USING BIND
+let multiple=function(x,y)
+{
+    console.log(x*y);
+}
+
+let multipletwo=multiple.bind(this,5);  //here (ignore this it point object in case of objects) 5 is x's parameter
+multipletwo(2);                         // here 2 is y's parameter
+
+let multiplethree=multiple.bind(this,5)
+multiplethree(3)
+
+
+
+
+//USING CLOSURE
+let multi=function(x)
+{
+    return function(y)
+    {
+        console.log(x*y);
+    }
+}
+
+let multitwo=multi(5)  // here 5 is x's parameter
+multitwo(2)            // 2 is y's parameter
+
+let multithree=multi(5);
+multithree(3)
